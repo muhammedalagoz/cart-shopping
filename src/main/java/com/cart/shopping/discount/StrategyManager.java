@@ -12,7 +12,7 @@ public class StrategyManager {
         this.strategy = strategy;
     }
 
-    public Double execute(List<BaseDiscount> baseDiscounts, List<Item> carts) {
+    public Double applyDiscount(List<BaseDiscount> baseDiscounts, List<Item> carts) {
         return strategy.apply(baseDiscounts, carts);
     }
 }

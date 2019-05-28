@@ -38,7 +38,7 @@ class StrategyManagerTest {
         Long quantity = Long.valueOf(1);
         List<Item> carts = Arrays.asList(new Item(product, quantity));
         List<BaseDiscount> baseDiscounts = Arrays.asList(new BaseDiscount(Double.valueOf(0), DiscountType.RATE));
-        Double result = strategyManager.execute(baseDiscounts, carts);
+        Double result = strategyManager.applyDiscount(baseDiscounts, carts);
         Assertions.assertEquals(Double.valueOf(0), result);
     }
 }

@@ -81,8 +81,8 @@ class ShoppingCartTest {
     @Test
     void testApplyCampaignDiscounts() {
         Category category = new Category(TITLE);
-        when(campaignDiscount.execute(any(), any())).thenReturn(Double.valueOf(0));
-        when(couponDiscount.execute(any(), any())).thenReturn(Double.valueOf(0));
+        when(campaignDiscount.applyDiscount(any(), any())).thenReturn(Double.valueOf(0));
+        when(couponDiscount.applyDiscount(any(), any())).thenReturn(Double.valueOf(0));
 
         Double percent = Double.valueOf(20);
         DiscountType discountType = DiscountType.RATE;
@@ -98,8 +98,8 @@ class ShoppingCartTest {
 
     @Test
     void testApplyCouponDiscounts() {
-        when(campaignDiscount.execute(any(), any())).thenReturn(Double.valueOf(0));
-        when(couponDiscount.execute(any(), any())).thenReturn(Double.valueOf(0));
+        when(campaignDiscount.applyDiscount(any(), any())).thenReturn(Double.valueOf(0));
+        when(couponDiscount.applyDiscount(any(), any())).thenReturn(Double.valueOf(0));
 
         Double percent = Double.valueOf(20);
         Coupon coupon = new Coupon(BigDecimal.ONE, percent, DiscountType.RATE);
@@ -114,8 +114,8 @@ class ShoppingCartTest {
     @Test
     void testGetCouponDiscount() {
         shoppingCart = mock(ShoppingCart.class);
-        when(campaignDiscount.execute(any(), any())).thenReturn(Double.valueOf(0));
-        when(couponDiscount.execute(any(), any())).thenReturn(Double.valueOf(0));
+        when(campaignDiscount.applyDiscount(any(), any())).thenReturn(Double.valueOf(0));
+        when(couponDiscount.applyDiscount(any(), any())).thenReturn(Double.valueOf(0));
 
         Double result = shoppingCart.getCouponDiscount();
         assertEquals(Double.valueOf(0), result);
@@ -124,8 +124,8 @@ class ShoppingCartTest {
     @Test
     void testGetCampaignDiscount() {
         shoppingCart = mock(ShoppingCart.class);
-        when(campaignDiscount.execute(any(), any())).thenReturn(Double.valueOf(0));
-        when(couponDiscount.execute(any(), any())).thenReturn(Double.valueOf(0));
+        when(campaignDiscount.applyDiscount(any(), any())).thenReturn(Double.valueOf(0));
+        when(couponDiscount.applyDiscount(any(), any())).thenReturn(Double.valueOf(0));
 
         Double result = shoppingCart.getCampaignDiscount();
         assertEquals(Double.valueOf(0), result);

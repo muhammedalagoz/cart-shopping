@@ -68,11 +68,11 @@ public class ShoppingCart {
     }
 
     public Double getCouponDiscount() {
-        return couponDiscount.execute(coupons, carts);
+        return couponDiscount.applyDiscount(coupons, carts);
     }
 
     public Double getCampaignDiscount() {
-        return campaignDiscount.execute(campaigns, carts);
+        return campaignDiscount.applyDiscount(campaigns, carts);
     }
 
     public BigDecimal calculateTotalPrice() {
